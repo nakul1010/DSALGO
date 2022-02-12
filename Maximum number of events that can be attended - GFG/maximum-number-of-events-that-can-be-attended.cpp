@@ -7,8 +7,7 @@ using namespace std;
 //User function Template for C++
 
 class Solution {
-  public:
-     int maxEvents(int start[], int end[], int N) {
+  public:  int maxEvents(int start[], int end[], int N) {
        // code here
       vector<pair<int,int>> v;
       // inserting all the meetings in a vector
