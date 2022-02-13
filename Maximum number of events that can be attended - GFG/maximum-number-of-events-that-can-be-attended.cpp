@@ -28,10 +28,10 @@ class Solution {
         int i=0, day=1, meet=0;
         while(i<n || pq.size())
         {
-            while(pq.empty()==false && pq.top()<day)//can't attend
+            while(pq.empty()==false && pq.top()<day)//can't attend since day gone
                 pq.pop();
                 
-            while((i<n) && (vec[i].first==day))
+            while((i<n) && (vec[i].first==day))//all events with starting day
             {
                 pq.push(vec[i].second);
                 i++;
@@ -39,7 +39,7 @@ class Solution {
             
             day++;
             
-            if(pq.size())
+            if(pq.size())// attend elligible with min end time
             {
                 meet++;
                 pq.pop();
