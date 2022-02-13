@@ -7,41 +7,47 @@ using namespace std;
 //User function Template for C++
 
 class Solution {
-  public:  int maxEvents(int start[], int end[], int N) {
-       // code here
-      vector<pair<int,int>> v;
-      // inserting all the meetings in a vector
-      for(int i = 0; i < N; i++)
-          v.push_back({start[i],end[i]});
-      
-      sort(v.begin(),v.end());
-      // sort all the meeting according to first and then second day
-      
-      priority_queue<int,vector<int>,greater<int>> pq; // min Heap
-      int cnt = 0; // Max meetings
-      int i = 0, d = 0;
-      while(!pq.empty() || i < N){
-          if(pq.size() == 0)
-              d = v[i].first; // cheking if it is the first meeting
-          
-          /* inserting all the meetings whose starting day is smaller than
-          the current day.
-          */
-          while(i < N && v[i].first <= d)
-              pq.push(v[i++].second);
-          // removing the meeting that we have taken into in our count(cnt)
-          pq.pop();
-          
-          cnt++; // incrementing the max count
-          d++; // incrementing the current day
-          
-          /* removing all the meetings whose ending time is smaller than d
-           because those meetings can not be taken into the answer */
-          while(!pq.empty() && pq.top() < d) pq.pop();
-      }
-      return (cnt);
-  
-   }
+  public:
+    
+    
+    int maxEvents(int start[], int end[], int n)//n2 Solution
+    {
+        vector< pair<int,int> >vec;
+        for(int i=0;i<n;i++)
+            vec.push_back(make_pair(start[i],end[i]));
+        
+        sort(vec.begin(),vec.end());
+        
+    
+        // for(int i=0;i<n;i++)
+        // {
+        //     cout<<vec[i].first<<" : "<<vec[i].second<<endl;
+        // }
+        
+        priority_queue<int, vector<int>,greater<int>> pq; // pq with min end times
+        int i=0, day=1, meet=0;
+        while(i<n || pq.size())
+        {
+            while(pq.empty()==false && pq.top()<day)//can't attend
+                pq.pop();
+                
+            while((i<n) && (vec[i].first==day))
+            {
+                pq.push(vec[i].second);
+                i++;
+            }
+            
+            day++;
+            
+            if(pq.size())
+            {
+                meet++;
+                pq.pop();
+            }
+        }
+        
+        return meet;
+    }
 };
 
 // { Driver Code Starts.
