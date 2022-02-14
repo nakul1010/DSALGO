@@ -30,13 +30,13 @@ public:
                 size = min(size, (i+1));
         }
         
-//         max_curr = -1;
-//         for(int i=n-1;i>0;i--)
-//         {
-//             max_curr = max(arr[i],max_curr);
-//             if(max_curr <= small_right[i-1])
-//                 size = min(size, (n-i));
-//         }
+        // max_curr = -1;//without this correct since left array only from left
+        // for(int i=n-1;i>0;i--)
+        // {
+        //     max_curr = max(arr[i],max_curr);
+        //     if(max_curr <= small_right[i-1])
+        //         size = min(size, (n-i));
+        // }
         
         return size;
     }
