@@ -15,7 +15,7 @@ public:
                     {
                         if(arr[i]+arr[j]+arr[k] == arr[l])
                         {
-                            string str =  to_string(i) + to_string(j) + to_string(k) + to_string(l); 
+                            string str =  to_string(i) + " + " + to_string(j) + " + " + to_string(k) + " = " + to_string(l); 
                             // cout<<arr[i]<<" + "<<arr[j]<<" + "<<arr[k]<<" = "<<arr[l]<<endl;
                             // cout<<str<<endl;
                             s.insert(str);
