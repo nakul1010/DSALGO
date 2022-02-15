@@ -3,17 +3,10 @@ public:
     int singleNumber(vector<int>& arr) 
     {
         int n = arr.size();
-        unordered_map<int,int>mp;
+        int xor_sum = 0;
         for(int i=0;i<n;i++)
-            mp[arr[i]]++;
-        
-        for(int i=0;i<n;i++)
-        {
-            int x = mp[arr[i]];
-            if(x==1)
-                return arr[i];
-        }
-        return -1;
+            xor_sum = xor_sum ^ arr[i];
+        return xor_sum;
     }
     
 };
