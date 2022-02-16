@@ -20,11 +20,17 @@ class Solution{
                 int cnt = 0;
                 for(int c1=0;c1<matrix[r1].size(); c1++)
                 {
-                    if(matrix[r1][c1]==1 && matrix[r2][c1]==1)
-                        cnt++;
+                    for(int c2=c1+1;c2<matrix[r1].size(); c2++)
+                    {
+                        if(matrix[r1][c1]==1 && matrix[r2][c1]==1 && matrix[r1][c2]==1 && matrix[r2][c2]==1)
+                        {
+                            // cout<<"\nr1 : "<<r1<<"   c1 : "<<c1<<"    r2 : "<<r2<<"    c2 : "<<c2<<endl;
+                            return true;
+                        }
+                            
+                    }
                 }
-                if(cnt >=2)
-                    return true;
+                    
             }
         }
         return false;
