@@ -53,8 +53,8 @@ public:
     			{
     				dp[i][j]=1;
     				
-    				if(k==max_length && start > i)
-    				    start = i;
+    				// if(k==max_length && start > i)
+    				//     start = i;
     				
     				if(k>max_length)
     				{
