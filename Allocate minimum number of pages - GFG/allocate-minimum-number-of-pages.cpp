@@ -14,39 +14,21 @@ class Solution
     
     bool IsPossible(int arr[],int n,int s,int mid)
     {
-        int sum=0,cnt = 1;
+        int stud = 1, sum=0;
         for(int i=0;i<n;i++)
         {
             if(arr[i]>mid)
                 return false;
-            if(sum+arr[i] > mid)
+            if(sum+arr[i]>mid)
             {
-                cnt++;
-                sum = arr[i];
+                stud++;
+                sum=0;
             }
-            else
-            {
-                sum += arr[i];
-            }
+            sum += arr[i];
         }
-        if(cnt>s)
-            return false;
+        if(stud>s)
+            return false;//imp
         return true;
-        // int stud = 1, sum=0;
-        // for(int i=0;i<n;i++)
-        // {
-        //     if(arr[i]>mid)
-        //         return false;
-        //     if(sum+arr[i]>mid)
-        //     {
-        //         stud++;
-        //         sum=0;
-        //     }
-        //     sum += arr[i];
-        // }
-        // if(stud>students)
-        //     return true;
-        // return false;
     }
     
     //Function to find minimum number of pages.
