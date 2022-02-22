@@ -48,10 +48,10 @@ public:
         				e.cellno = moves[i];
         			e.d = curr.d +1;
         			q.push(e);
-        // 			if(e.cellno == 30)
-        //             {
-        //                 return e.d;
-        //             }
+        			if(e.cellno == 30)
+                    {
+                        return e.d;
+                    }
                     
     			}
     		}
