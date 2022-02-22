@@ -53,7 +53,7 @@ class Solution{
                 {
                     continue;
                 }
-                else if(matrix[new_x][new_y]=='O' &&  ans[new_x][new_y] > ans[x][y] + 1)
+                else if(matrix[new_x][new_y]=='O' &&  ans[new_x][new_y] ==INT_MAX)
                 {
                     ans[new_x][new_y]=ans[x][y] + 1;
                     q.push(make_pair(new_x,new_y));
