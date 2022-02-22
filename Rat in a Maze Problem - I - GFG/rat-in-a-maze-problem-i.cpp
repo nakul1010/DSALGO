@@ -19,6 +19,8 @@ class Solution{
             vec.push_back(str);
             return;
         }
+        if( mat[i][j] == 0)
+            return;
         mat[i][j] = 0;
         
         if(i+1<n && mat[i+1][j]==1)
