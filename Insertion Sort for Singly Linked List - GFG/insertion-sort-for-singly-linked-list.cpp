@@ -44,26 +44,23 @@ struct Node {
 class Solution
 {
     public:
-    Node* insertionSort(struct Node* head_ref)
-    {
-        vector<int>vec;
-        Node* curr = head_ref;
-        while(curr!=NULL)
-        {
-            vec.push_back(curr->data);
-            curr = curr->next;
-        }
-        sort(vec.begin(), vec.end());
-        
-        int i = 0;
-        curr = head_ref;
-        while(curr!=NULL)
-        {
-            curr->data = vec[i];
-            i++, curr = curr->next;
-        }
-        return head_ref;
-    }
+    Node* insertionSort(struct Node* head)
+   {
+       Node *p = head;
+       Node *q = head;
+       
+       while(p){
+           q = p->next;
+           while(q){
+               if(p->data>q->data){
+                   swap(p->data,q->data);
+               }
+               q = q->next;
+           }
+           p = p->next;
+       }
+       return head;
+   }
 };
 
 // { Driver Code Starts.
