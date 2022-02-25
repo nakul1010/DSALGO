@@ -11,8 +11,8 @@ class Solution{
 public:
     string moveRobots(string s1, string s2)
     {
-        if(s1.length()!=s2.length())
-            return "No";
+        // if(s1.length()!=s2.length())
+        //     return "No";
         int n = s2.length(), b_cnt=0, a_cnt=0, i=0, j=0; 
         
         while(i<n && j<n)
