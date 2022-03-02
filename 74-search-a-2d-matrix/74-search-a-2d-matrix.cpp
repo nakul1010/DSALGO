@@ -8,7 +8,7 @@ public:
         
         while(start<=end)
         {
-            int mid = (start+end)/2;
+            mid = (start+end)/2;
             
             if(target <= arr[mid][col-1])
             {
@@ -26,10 +26,28 @@ public:
         
         if(get_row!=-1)
         {
-            for(int i=0;i<col;i++)
+            // cout<<"get_row : "<<get_row<<endl;
+            start = 0, end = col-1;
+            while(start<=end)
             {
-                if(arr[get_row][i]==target)
+                mid = (start+end)/2;
+                // cout<<"mid : "<<mid<<"     ele : "<<arr[get_row][mid]<<endl;
+                if(target == arr[get_row][mid])
                     return true;
+                if(arr[get_row][mid] > target)
+                {
+                    end = mid-1;
+                }
+                else
+                {
+                    start = mid+1;
+                }
+                
+                // if(prev_mid == mid)
+//                 [[1,3]]
+// 3
+                //     break;
+                // prev_mid = mid;
             }
         }
     
