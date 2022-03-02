@@ -27,11 +27,11 @@ public:
         if(get_row!=-1)
         {
             // cout<<"get_row : "<<get_row<<endl;
-            start = 0, end = col-1;
+            start = 0, end = col-1, prev_mid=-1;//imp to set prev_mid again since change above
             while(start<=end)
             {
                 mid = (start+end)/2;
-                // cout<<"mid : "<<mid<<"     ele : "<<arr[get_row][mid]<<endl;
+                // cout<<"start : "<<start<<"    end : "<<end<<"    mid : "<<mid<<"     ele : "<<arr[get_row][mid]<<endl;
                 if(target == arr[get_row][mid])
                     return true;
                 if(arr[get_row][mid] > target)
@@ -43,11 +43,9 @@ public:
                     start = mid+1;
                 }
                 
-                // if(prev_mid == mid)
-//                 [[1,3]]
-// 3
-                //     break;
-                // prev_mid = mid;
+                if(prev_mid == mid)
+                    break;
+                prev_mid = mid;
             }
         }
     
