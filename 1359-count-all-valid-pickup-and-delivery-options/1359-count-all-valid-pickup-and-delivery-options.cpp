@@ -1,6 +1,5 @@
 class Solution {
 public:
-        
     int countOrders(int n) 
     {
         long res = 1, mod = 1000000007;
