@@ -15,12 +15,12 @@ public:
     
     void add(int index, int val) 
     {
-        mp2[nums2[index]]--;
+        mp2[nums2[index]]--;//remove freq of prev number
         nums2[index] += val;
-        mp2[nums2[index]]++;
+        mp2[nums2[index]]++;//add freq of new generated number
     }
     
-    int count(int tot) 
+    int count(int tot)
     {
         int cnt = 0;
         for(auto it : mp1)
