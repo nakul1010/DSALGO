@@ -9,21 +9,50 @@ using namespace std;
 
 class Solution{
 public:
-int findHeight(int N, int arr[]){
-      
-       vector<int> mp(N+1);
-       
-       mp[0] = 1;
-       
-       int ans = 0;
-       for(int i=1;i<N;i++)
-       {
-           mp[i] = mp[arr[i]] + 1;
-           
-           ans = max(ans,mp[i]);
-       }
-       
-       return ans;
+    int findHeight(int n, int arr[])
+    {
+        vector<int>adj[n];
+        int root = -1, cnt=0;
+        for(int i=0; i<n; i++)
+        {
+            if(arr[i]==-1)
+                root = i;
+            else
+                adj[arr[i]].push_back(i);
+        }
+        
+        queue<int>q;
+        q.push(root);
+        q.push(-1);
+        
+        while(q.empty()==false)
+        {
+            int curr = q.front();
+            q.pop();
+            if(curr==-1)
+            {
+                cnt++;
+                q.push(-1);
+                curr = q.front();
+                q.pop();
+                if(curr==-1) break;
+            }
+            
+            for(auto i : adj[curr])
+            {
+                q.push(i);
+            }
+            
+            // for(int i=0;i<n;i++)
+            // {
+            //     if(arr[i]==curr)
+            //     {
+            //         q.push(i);
+            //         arr[i] = -1;
+            //     }   
+            // }
+        }
+        return cnt;
     }
 };
 
